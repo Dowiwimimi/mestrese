@@ -1,3 +1,6 @@
+# esta es la lista de las ciudades con la que voy a trabajar 
+ciudades = ["Guayaquil", "Samborondón", "Loja"]
+# su estructura: [ciudad][semana][día] con los diccionarios {"day": nombre, "temp": valor}
 temperaturas = [
     [   # Guayaquil
         [   # Semana 1
@@ -94,7 +97,7 @@ temperaturas = [
             {"day": "Sábado", "temp": 22},
             {"day": "Domingo", "temp": 21}
         ],
-        [   # La Semana 3
+        [   # Semana 3
             {"day": "Lunes", "temp": 18},
             {"day": "Martes", "temp": 19},
             {"day": "Miércoles", "temp": 20},
@@ -103,7 +106,7 @@ temperaturas = [
             {"day": "Sábado", "temp": 21},
             {"day": "Domingo", "temp": 20}
         ],
-        [   # La Semana 4
+        [   # Semana 4
             {"day": "Lunes", "temp": 17},
             {"day": "Martes", "temp": 18},
             {"day": "Miércoles", "temp": 19},
@@ -115,10 +118,24 @@ temperaturas = [
     ]
 ]
 
-for i, ciudad in enumerate(temperaturas):
-    for j, semana in enumerate(ciudad):
-        suma = 0
-        for dia in semana:
-            suma += dia['temp']
-        promedio = suma / 7
-        print(f"Promedio de temperaturas para {ciudad[i]} en la semana {j+1}: {promedio:.1f}")
+# funcion para calcular el promedio de temperaturas por ciudad y semana
+def calcular_promedio_temperaturas(temperaturas, ciudades):
+    """
+    Calcula el promedio de temperaturas para cada ciudad y semana
+    Parámetros:
+        temperaturas: Matriz 3D con datos de temperaturas [ciudad][semana][día]
+        ciudades: Lista con los nombres de las ciudades
+    Retorna:
+        None. Imprime los promedios por ciudad y semana.
+    """
+    for i, ciudad in enumerate(temperaturas):
+        for j, semana in enumerate(ciudad):
+            suma = 0
+            for dia in semana:
+                suma += dia["temp"]
+            promedio = suma / 7  # asi divide por 7 días de la semana
+            print(f"El promedio de temperaturas en {ciudades[i]} para la semana {j+1} es: {promedio:.1f}°C")
+            
+#llamar a la función con los datos y listo 
+print("Calculando promedios de temperaturas...")
+calcular_promedio_temperaturas(temperaturas, ciudades)
