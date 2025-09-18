@@ -25,7 +25,8 @@ def main():
     total2 = monto2 - descuento2
     print(f"Compra 2 -> Monto: ${monto2:.2f}, Descuento ({porcentaje2}%): ${descuento2:.2f}, Total a pagar: ${total2:.2f}")
 
-# ejecucion 
+# para ejecutar
 if __name__ == "__main__":
     main()
+
 
